@@ -1,4 +1,4 @@
-<h1 align="center">🤖 AI Map Concierge 🗺️</h1>
+<h1 align="center">⛽ Gas Cost 💸</h1>
   <!-- <p align="center">
     <div style="text-align:center;">
     <img src="src/img/MapScreentshot.png" 
