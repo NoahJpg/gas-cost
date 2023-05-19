@@ -56,6 +56,7 @@
 ## Technologies Used
 
 * _React_
+* _Yarn_
 * _Bootstrap_
 * _React-Google-Maps-API_
 * _Axios_
