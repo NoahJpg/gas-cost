@@ -1,41 +1,30 @@
-import { GoogleMap, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
+import React from "react";
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-function Map() {
-  const [response, setResponse] = useState(null);
+const containerStyle = {
+  width: '400px',
+  height: '400px'
+};
 
-  const directionsCallback = (res) => {
-    if (res !== null) {
-      if (res.status === 'OK') {
-        setResponse(res);
-      } else {
-        console.log('response: ', res);
-      }
-    }
-  }
+const center = {
+  lat: -3.745,
+  lng: -38.523
+};
 
+function MyComponent() {
   return (
-    <GoogleMap
-      id="directions-example"
-      mapContainerStyle={{ height: "400px", width: "800px" }}
-      zoom={2}
-      center={{ lat: 40.748817, lng: -73.985428 }}
+    <LoadScript
+      googleMapsApiKey={process.env.REACT_APP_CLIENT_SIDE_MAPS_KEY}
     >
-      <DirectionsService
-        options={{ 
-          origin: 'Chicago',
-          destination: 'New York',
-          travelMode: 'DRIVING' 
-        }}
-        callback={directionsCallback}
-      />
-
-      {response !== null && (
-        <DirectionsRenderer
-          options={{ 
-            directions: response
-          }}
-        />
-      )}
-    </GoogleMap>
-  );
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+      >
+        <></>
+      </GoogleMap>
+    </LoadScript>
+  )
 }
+
+export default React.memo(MyComponent)
